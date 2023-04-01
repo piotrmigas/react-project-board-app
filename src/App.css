@@ -1,0 +1,224 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f7f9fb;
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+body.fade-out {
+  opacity: 0;
+  transition: none;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  width: 50px;
+  background: #00214c;
+}
+
+.main-wrapper {
+  height: 100vh;
+  margin-left: 50px;
+}
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  font-weight: bold;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 25px;
+}
+
+.app {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  padding-left: 25px;
+}
+
+/*Nav*/
+
+.add-task {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.add-task span {
+  color: #8898a6;
+}
+
+.list-info {
+  font-weight: bold;
+}
+
+.badge {
+  float: right;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+/*Cards*/
+
+.dropzone {
+  height: 100vh;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: #fff;
+  margin-bottom: 16px;
+  padding: 20px;
+}
+
+.card-body {
+  position: relative;
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form input {
+  border: 0;
+  outline: none;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fa-circle {
+  color: lightgrey;
+  margin-bottom: 16px;
+}
+
+.fa-plus {
+  cursor: pointer;
+}
+
+.fa-edit {
+  margin-bottom: 16px;
+  color: #e0c989;
+}
+
+.fa-edit.edit {
+  align-self: center;
+  opacity: 0;
+  cursor: pointer;
+  color: rgb(116, 116, 236);
+}
+
+.fa-check-circle {
+  color: #58cc89;
+  margin-bottom: 16px;
+}
+
+.fa-trash {
+  opacity: 0;
+  cursor: pointer;
+  color: gray;
+  align-self: end;
+}
+
+.card:hover .fa-trash,
+.card:hover .fa-edit.edit {
+  opacity: 1;
+}
+
+input {
+  width: 100%;
+  font-family: 'Montserrat';
+}
+
+input[name='title'] {
+  width: 265px;
+  font-weight: bold;
+  font-size: 1.17em;
+}
+
+input[name='title']::-webkit-input-placeholder,
+input[name='modal-title']::-webkit-input-placeholder {
+  color: #8898a6;
+  font-weight: bold;
+}
+
+/*Form*/
+
+.shadow {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  position: absolute;
+  top: 2px;
+  left: 158px;
+}
+
+form span::before {
+  display: inline;
+  content: '⚠ ';
+}
+
+textarea {
+  overflow-y: hidden;
+  font-family: 'Montserrat';
+  border: none;
+  resize: none;
+  width: 94%;
+  font-size: 16px;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #8898a6;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.icons button {
+  background: transparent;
+  border: 0;
+}
+
+.icons button:focus {
+  outline: none;
+}
+
+.fa-times-circle {
+  align-self: end;
+  cursor: pointer;
+  color: rgb(207, 90, 90);
+}
+
+.fas.fa-check-circle {
+  cursor: pointer;
+}
+
+.form.fa-plus {
+  align-self: end;
+}
