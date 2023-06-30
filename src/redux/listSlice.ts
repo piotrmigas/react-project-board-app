@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addTask, deleteTask } from './taskSlice';
-import { List } from '../types';
 
 const initialState: List = {
   'list-0': {

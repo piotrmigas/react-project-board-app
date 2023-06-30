@@ -2,16 +2,15 @@ import { useState, MouseEvent } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
 import { deleteTask, updateTask } from '../redux/taskSlice';
-import { TaskListItem } from '../types';
 
-type TaskProps = {
+type Props = {
   listId: string;
   task: TaskListItem;
   index: number;
   icon: string;
 };
 
-const Task = ({ listId, task, index, icon }: TaskProps) => {
+const Task = ({ listId, task, index, icon }: Props) => {
   const [isEdited, setIsEdited] = useState(false);
   const [title, setTitle] = useState(task.title);
   const [content, setContent] = useState(task.content);

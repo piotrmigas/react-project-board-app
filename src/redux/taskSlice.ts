@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { TaskList } from '../types';
 
 const initialState: TaskList = {
   'task-0': {

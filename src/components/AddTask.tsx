@@ -3,9 +3,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
 import { addTask } from '../redux/taskSlice';
-import { ListItem } from '../types';
 
-type AddTaskProps = {
+type Props = {
   list: ListItem;
   listId: string;
 };
@@ -15,7 +14,7 @@ type Inputs = {
   content: string;
 };
 
-const AddTask = ({ list, listId }: AddTaskProps) => {
+const AddTask = ({ list, listId }: Props) => {
   const [form, setForm] = useState(false);
   const {
     register,

@@ -1,14 +1,13 @@
 import { Droppable } from 'react-beautiful-dnd';
 import Task from './Task';
 import AddTask from './AddTask';
-import { ListItem, TaskList, TaskListItem } from '../types';
 
-type ListProps = {
+type Props = {
   list: ListItem;
   tasks: TaskList;
 };
 
-const List = ({ list, tasks }: ListProps) => (
+const List = ({ list, tasks }: Props) => (
   <div>
     <AddTask list={list} listId={list.id} />
     <Droppable droppableId={list.id}>

@@ -5,7 +5,6 @@ import List from './components/List';
 import Header from './components/Header';
 import { dragHappened } from './redux/listSlice';
 import { RootState } from './redux/store';
-import { TaskListItem } from './types';
 
 function App() {
   const dispatch = useDispatch();

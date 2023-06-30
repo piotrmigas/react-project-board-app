@@ -1,15 +1,15 @@
-export type ListItem = {
+type ListItem = {
   id: string;
   tasks: string[];
   title: string;
   icon: string;
 };
 
-export interface List {
+interface List {
   [key: string]: ListItem;
 }
 
-export type TaskListItem = {
+type TaskListItem = {
   id: string;
   list: string;
   title: string;
@@ -17,6 +17,6 @@ export type TaskListItem = {
   icon: string;
 };
 
-export interface TaskList {
+interface TaskList {
   [key: string]: Task;
 }
