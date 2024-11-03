@@ -1,24 +1,26 @@
+import { faCircle, faEdit, faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { createSlice } from '@reduxjs/toolkit';
 import { addTask, deleteTask } from './taskSlice';
+import { List } from '../types';
 
 const initialState: List = {
   'list-0': {
     id: 'list-0',
     tasks: ['task-0', 'task-1'],
     title: 'Do zrobienia',
-    icon: 'far fa-circle',
+    icon: faCircle,
   },
   'list-1': {
     id: 'list-1',
     tasks: ['task-2', 'task-3'],
     title: 'W trakcie',
-    icon: 'far fa-edit',
+    icon: faEdit,
   },
   'list-2': {
     id: 'list-2',
     tasks: ['task-4'],
     title: 'Zrobione',
-    icon: 'far fa-check-circle',
+    icon: faCheckCircle,
   },
 };
 

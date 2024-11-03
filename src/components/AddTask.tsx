@@ -2,20 +2,19 @@ import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { v4 } from 'uuid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle, faEdit, faCheckCircle } from '@fortawesome/free-regular-svg-icons';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { addTask } from '../redux/taskSlice';
+import { ListItem, Inputs } from '../types';
 
 type Props = {
   list: ListItem;
   listId: string;
 };
 
-type Inputs = {
-  title: string;
-  content: string;
-};
-
 const AddTask = ({ list, listId }: Props) => {
-  const [form, setForm] = useState(false);
+  const [formOpen, setFormOpen] = useState(false);
   const {
     register,
     handleSubmit,
@@ -30,7 +29,7 @@ const AddTask = ({ list, listId }: Props) => {
     const icon = list.icon;
     dispatch(addTask({ id, listId, title, content, icon }));
     reset();
-    setForm(false);
+    setFormOpen(false);
   };
 
   return (
@@ -42,12 +41,12 @@ const AddTask = ({ list, listId }: Props) => {
           </h4>
         </div>
         <div className='button'>
-          <span className='badge' onClick={() => setForm(!form)}>
-            Dodaj <i className={form ? 'fas fa-minus' : 'fas fa-plus'} />
+          <span className='badge' onClick={() => setFormOpen(!formOpen)}>
+            Dodaj <FontAwesomeIcon icon={formOpen ? faMinus : faPlus} />
           </span>
         </div>
       </div>
-      <form style={{ display: form ? 'block' : 'none' }} onSubmit={handleSubmit(onSubmit)}>
+      <form style={{ display: formOpen ? 'block' : 'none' }} onSubmit={handleSubmit(onSubmit)}>
         <div className='card shadow'>
           <div className='card-body'>
             <input
@@ -66,13 +65,9 @@ const AddTask = ({ list, listId }: Props) => {
             />
           </div>
           <div className='icons'>
-            <i
-              className={
-                listId === 'list-1' ? 'far fa-edit' : listId === 'list-2' ? 'far fa-check-circle' : 'far fa-circle'
-              }
-            />
+            <FontAwesomeIcon icon={listId === 'list-1' ? faEdit : listId === 'list-2' ? faCheckCircle : faCircle} />
             <button type='submit'>
-              <i className='fas fa-plus form' />
+              <FontAwesomeIcon icon={faPlus} className='form' />
             </button>
           </div>
         </div>

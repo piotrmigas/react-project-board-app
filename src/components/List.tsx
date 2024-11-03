@@ -1,10 +1,11 @@
 import { Droppable } from 'react-beautiful-dnd';
 import Task from './Task';
 import AddTask from './AddTask';
+import { ListItem, TaskListItem } from '../types';
 
 type Props = {
   list: ListItem;
-  tasks: TaskList;
+  tasks: TaskListItem[];
 };
 
 const List = ({ list, tasks }: Props) => (

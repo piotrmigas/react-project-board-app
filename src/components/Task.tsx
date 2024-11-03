@@ -1,13 +1,19 @@
 import { useState, MouseEvent } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faTimesCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { deleteTask, updateTask } from '../redux/taskSlice';
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
+
+import { TaskListItem } from '../types';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type Props = {
   listId: string;
   task: TaskListItem;
   index: number;
-  icon: string;
+  icon: IconDefinition;
 };
 
 const Task = ({ listId, task, index, icon }: Props) => {
@@ -17,7 +23,7 @@ const Task = ({ listId, task, index, icon }: Props) => {
 
   const dispatch = useDispatch();
 
-  const saveTask = (e: MouseEvent<HTMLButtonElement>) => {
+  const saveTask = (e: MouseEvent<SVGSVGElement, globalThis.MouseEvent>) => {
     e.preventDefault();
     if (title === '') {
       alert('Tytuł wymagany!');
@@ -26,6 +32,8 @@ const Task = ({ listId, task, index, icon }: Props) => {
       setIsEdited(false);
     }
   };
+
+  console.log(icon);
 
   return isEdited ? (
     <form>
@@ -53,8 +61,8 @@ const Task = ({ listId, task, index, icon }: Props) => {
           />
         </div>
         <div className='icons'>
-          <i className='fas fa-check-circle' onClick={saveTask} />
-          <i className='fas fa-times-circle' onClick={() => setIsEdited(false)} />
+          <FontAwesomeIcon icon={faCheckCircle} onClick={saveTask} />
+          <FontAwesomeIcon icon={faTimesCircle} onClick={() => setIsEdited(false)} />
         </div>
       </div>
     </form>
@@ -68,13 +76,13 @@ const Task = ({ listId, task, index, icon }: Props) => {
           </div>
           <div className='icons'>
             <div>
-              <i className={icon} />
+              <FontAwesomeIcon icon={icon} className={`float-right ${icon.iconName !== 'pen-to-square' && 'pr-1'}`} />
             </div>
             <div>
-              <i className='far fa-edit edit' onClick={() => setIsEdited(true)} />
+              <FontAwesomeIcon icon={faEdit} className='edit' onClick={() => setIsEdited(true)} />
             </div>
             <div>
-              <i className='fas fa-trash' onClick={() => dispatch(deleteTask({ id: task.id, listId }))} />
+              <FontAwesomeIcon icon={faTrash} onClick={() => dispatch(deleteTask({ id: task.id, listId }))} />
             </div>
           </div>
         </div>
